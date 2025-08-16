@@ -49,21 +49,21 @@ public class RecordDao{
     
     
     public void insertToRed(Record record) {
-       var inserted = jdbcClient.sql("insert into red(hostname, os, vm, location, `date`) values(?,?,?,?,?,?)")
+       var inserted = jdbcClient.sql("insert into red(hostname, os, vm, location, `date`) values(?,?,?,?,?)")
                .params(List.of(record.caseInfo(), record.hostname(), record.os(), record.vm().toString(), record.location(), record.date()))
                .update();
        Assert.state(inserted == 1, "failed to create run: " + record.hostname());
     }
     
     public void insertToGreen(Record record) {
-        var inserted = jdbcClient.sql("insert into green(hostname, os, vm, location, `date`) values(?,?,?,?,?,?)")
+        var inserted = jdbcClient.sql("insert into green(hostname, os, vm, location, `date`) values(?,?,?,?,?)")
                .params(List.of(record.caseInfo(), record.hostname(), record.os(), record.vm().toString(), record.location(), record.date()))
                .update();
        Assert.state(inserted == 1, "failed to create run: " + record.hostname());
     }
     
     public void insertToBlue(Record record) {
-        var inserted = jdbcClient.sql("insert into blue(hostname, os, vm, location, `date`) values(?,?,?,?,?,?)")
+        var inserted = jdbcClient.sql("insert into blue(hostname, os, vm, location, `date`) values(?,?,?,?,?)")
                .params(List.of(record.caseInfo(), record.hostname(), record.os(), record.vm().toString(), record.location(), record.date()))
                .update();
        Assert.state(inserted == 1, "failed to create run: " + record.hostname());
